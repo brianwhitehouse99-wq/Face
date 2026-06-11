@@ -12,7 +12,7 @@ type Screen = 'setup' | 'loading' | 'game' | 'final'
 export default function Home() {
   const [screen, setScreen] = useState<Screen>('setup')
   const [athletes, setAthletes] = useState<Athlete[]>([])
-  const [filters, setFilters] = useState<Filters>({ sport: 'all', conference: 'all', difficulty: 'all', count: 3 })
+  const [filters, setFilters] = useState<Filters>({ sport: 'all', conference: 'all', difficulty: 'all', count: 3, team: 'all' })
   const [finalScore, setFinalScore] = useState(0)
   const [finalCorrect, setFinalCorrect] = useState(0)
   const [athleteIds, setAthleteIds] = useState<number[]>([])
