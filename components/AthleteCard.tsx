@@ -13,8 +13,8 @@ type Props = {
 }
 
 function calcScore(guessNumber: number, seconds: number): number {
-  const maxScores = [1000, 600, 300]
-  const minScores = [100, 60, 30]
+  const maxScores = [100, 60, 30]
+  const minScores = [10, 6, 3]
   const max = maxScores[guessNumber - 1] || 0
   const min = minScores[guessNumber - 1] || 0
   if (seconds <= 10) { return max }

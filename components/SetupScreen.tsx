@@ -45,7 +45,7 @@ export default function SetupScreen({ onStart }: Props) {
             Face<span className="text-yellow-400">.</span>
           </h1>
           <p className="text-zinc-400 mt-2 text-sm tracking-wide">
-            Test your sports recognition skills!
+            Test your player recognition skills!
           </p>
         </div>
 
@@ -140,7 +140,7 @@ export default function SetupScreen({ onStart }: Props) {
         {/* Fame filter */}
         <div className="mb-6">
           <label className="text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-3 block">
-            Player fame
+            Difficulty Level
           </label>
           <div className="flex flex-wrap gap-2">
             {[
