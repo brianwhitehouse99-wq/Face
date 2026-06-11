@@ -33,6 +33,7 @@ export default function AthleteCard({ athlete, athleteIndex, totalAthletes, onRe
   const [score, setScore] = useState<number | null>(null)
   const startTime = useRef(Date.now())
   const timerRef = useRef<NodeJS.Timeout | null>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
   const maxGuesses = 3
 
   useEffect(() => {
@@ -62,6 +63,7 @@ export default function AthleteCard({ athlete, athleteIndex, totalAthletes, onRe
       setDone(true)
       setWasCorrect(true)
       setFeedback('')
+      inputRef.current?.blur()
       onResult(true, earned)
     } else if (newCount >= maxGuesses) {
       if (timerRef.current) clearInterval(timerRef.current)
@@ -69,6 +71,7 @@ export default function AthleteCard({ athlete, athleteIndex, totalAthletes, onRe
       setDone(true)
       setWasCorrect(false)
       setFeedback('')
+      inputRef.current?.blur()
       onResult(false, 0)
     } else {
       setFeedback(`Not quite — ${maxGuesses - newCount} guess${maxGuesses - newCount === 1 ? '' : 'es'} left`)
@@ -83,6 +86,7 @@ export default function AthleteCard({ athlete, athleteIndex, totalAthletes, onRe
     setDone(true)
     setWasCorrect(false)
     setFeedback('')
+    inputRef.current?.blur()
     onResult(false, 0)
   }
 
@@ -123,6 +127,7 @@ export default function AthleteCard({ athlete, athleteIndex, totalAthletes, onRe
           <p className="text-zinc-500 text-sm mb-2">Athlete {athleteIndex + 1} of {totalAthletes} — who is this?</p>
           <div className="flex gap-2">
             <input
+              ref={inputRef}
               type="text"
               value={guess}
               onChange={e => setGuess(e.target.value)}
