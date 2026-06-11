@@ -98,12 +98,12 @@ export default function AthleteCard({ athlete, athleteIndex, totalAthletes, onRe
           {athlete.sport} {athlete.conference ? `· ${athlete.conference}` : ''}
         </div>
         {!done && (
-          <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-yellow-400 text-base font-bold px-4 py-2 rounded-full">
+          <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-yellow-400 text-xl font-bold px-4 py-3 rounded-full">
             ⏱ {elapsed}s
           </div>
         )}
         {done && score !== null && (
-          <div className={`absolute top-3 right-3 text-base font-bold px-4 py-2 rounded-full ${score > 0 ? 'bg-yellow-400 text-black' : 'bg-zinc-700 text-zinc-300'}`}>
+          <div className={`absolute top-3 right-3 text-xl font-bold px-4 py-3 rounded-full ${score > 0 ? 'bg-yellow-400 text-black' : 'bg-zinc-700 text-zinc-300'}`}>
             +{score} pts
           </div>
         )}

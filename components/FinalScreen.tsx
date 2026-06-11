@@ -28,7 +28,7 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
   const [creating, setCreating] = useState(false)
 
   const pct = correct / total
-  const maxScore = total * 1000
+  const maxScore = total * 100
   const messages = ['Tough one — check back tomorrow!', 'Not bad, keep at it!', 'Nice game!', 'Perfect score! You really know your athletes.']
   const msgIndex = pct === 0 ? 0 : pct < 0.5 ? 1 : pct < 1 ? 2 : 3
 

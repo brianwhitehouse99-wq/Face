@@ -7,8 +7,6 @@ type Props = {
   onStart: (filters: Filters) => void
 }
 
-const CONFERENCES: string[] = []
-
 const TEAMS: Record<string, string[]> = {
   NFL: ['Arizona Cardinals','Atlanta Falcons','Baltimore Ravens','Buffalo Bills','Carolina Panthers','Chicago Bears','Cincinnati Bengals','Cleveland Browns','Dallas Cowboys','Denver Broncos','Detroit Lions','Green Bay Packers','Houston Texans','Indianapolis Colts','Jacksonville Jaguars','Kansas City Chiefs','Las Vegas Raiders','Los Angeles Chargers','Los Angeles Rams','Miami Dolphins','Minnesota Vikings','New England Patriots','New Orleans Saints','New York Giants','New York Jets','Philadelphia Eagles','Pittsburgh Steelers','San Francisco 49ers','Seattle Seahawks','Tampa Bay Buccaneers','Tennessee Titans','Washington Commanders'],
   NBA: ['Atlanta Hawks','Boston Celtics','Brooklyn Nets','Charlotte Hornets','Chicago Bulls','Cleveland Cavaliers','Dallas Mavericks','Denver Nuggets','Detroit Pistons','Golden State Warriors','Houston Rockets','Indiana Pacers','Los Angeles Clippers','Los Angeles Lakers','Memphis Grizzlies','Miami Heat','Milwaukee Bucks','Minnesota Timberwolves','New Orleans Pelicans','New York Knicks','Oklahoma City Thunder','Orlando Magic','Philadelphia 76ers','Phoenix Suns','Portland Trail Blazers','Sacramento Kings','San Antonio Spurs','Toronto Raptors','Utah Jazz','Washington Wizards'],
@@ -24,7 +22,6 @@ export default function SetupScreen({ onStart }: Props) {
   const [team, setTeam] = useState('all')
   const [showTeams, setShowTeams] = useState(false)
 
-  const isCollege = sport === 'CFB' || sport === 'CBB' || sport === 'college'
   const hasTeams = TEAMS[sport] !== undefined
 
   useEffect(() => {
@@ -33,7 +30,7 @@ export default function SetupScreen({ onStart }: Props) {
   }, [sport])
 
   function handleStart() {
-    onStart({ sport, conference: isCollege ? conference : 'all', difficulty, count, team })
+    onStart({ sport, conference: 'all', difficulty, count, team })
   }
 
   return (
@@ -49,48 +46,29 @@ export default function SetupScreen({ onStart }: Props) {
           </p>
         </div>
 
-        {/* Pro leagues */}
+        {/* Sport selector — all in one row */}
         <div className="mb-6">
           <label className="text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-3 block">
-            Pro leagues
+            Sport
           </label>
           <div className="flex flex-wrap gap-2">
-            {[['all', 'All sports'], ['NFL', 'NFL'], ['NBA', 'NBA'], ['MLB', 'MLB'], ['NHL', 'NHL'], ['GOLF', 'Golf']].map(([val, label]) => (
+            {[
+              ['all', 'All sports'],
+              ['NFL', 'NFL'],
+              ['NBA', 'NBA'],
+              ['MLB', 'MLB'],
+              ['NHL', 'NHL'],
+              ['GOLF', 'Golf'],
+              ['CFB', 'College football'],
+              ['CBB', 'College basketball'],
+              ['college', 'All college'],
+            ].map(([val, label]) => (
               <Chip key={val} active={sport === val} onClick={() => { setSport(val); setConference('all') }}>
                 {label}
               </Chip>
             ))}
           </div>
         </div>
-
-        {/* College */}
-        <div className="mb-6">
-          <label className="text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-3 block">
-            College
-          </label>
-          <div className="flex flex-wrap gap-2">
-            {[['CFB', 'College football'], ['CBB', 'College basketball'], ['college', 'All college']].map(([val, label]) => (
-              <Chip key={val} active={sport === val} onClick={() => { setSport(val); setConference('all') }}>
-                {label}
-              </Chip>
-            ))}
-          </div>
-        </div>
-
-        {/* Conference (college only) */}
-        {isCollege && (
-          <div className="mb-6">
-            <label className="text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-3 block">
-              Conference
-            </label>
-            <div className="flex flex-wrap gap-2">
-              <Chip active={conference === 'all'} onClick={() => setConference('all')}>All conferences</Chip>
-              {CONFERENCES.map(c => (
-                <Chip key={c} active={conference === c} onClick={() => setConference(c)}>{c}</Chip>
-              ))}
-            </div>
-          </div>
-        )}
 
         {/* Team filter (pro sports only) */}
         {hasTeams && (
@@ -137,14 +115,14 @@ export default function SetupScreen({ onStart }: Props) {
 
         <div className="border-t border-zinc-800 my-6" />
 
-        {/* Fame filter */}
+        {/* Difficulty filter */}
         <div className="mb-6">
           <label className="text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-3 block">
             Difficulty Level
           </label>
           <div className="flex flex-wrap gap-2">
             {[
-              ['all', 'Everyone'],
+              ['all', 'Random'],
               ['5', '⭐ Superstars'],
               ['4', '🏅 Fan Favorites'],
               ['3', '👟 Roster Players'],
@@ -157,7 +135,7 @@ export default function SetupScreen({ onStart }: Props) {
             ))}
           </div>
           <p className="text-zinc-600 text-xs mt-2">
-            {difficulty === 'all' && 'All players in the database'}
+            {difficulty === 'all' && 'Random mix of players'}
             {difficulty === '5' && 'Household names — Mahomes, LeBron, Trout'}
             {difficulty === '4' && 'Starters most fans recognize'}
             {difficulty === '3' && 'Regular contributors'}
