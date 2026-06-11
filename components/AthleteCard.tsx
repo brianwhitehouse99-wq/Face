@@ -134,7 +134,7 @@ export default function AthleteCard({ athlete, athleteIndex, totalAthletes, onRe
               onKeyDown={e => e.key === 'Enter' && submitGuess()}
               placeholder="Type athlete name..."
               className="flex-1 bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-yellow-400 transition-colors"
-              autoFocus
+
             />
             <button onClick={submitGuess} className="px-5 py-3 bg-yellow-400 hover:bg-yellow-300 active:scale-95 text-black font-semibold rounded-xl transition-all">
               Guess
