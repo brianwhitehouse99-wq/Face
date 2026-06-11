@@ -140,7 +140,7 @@ function ChallengePageInner() {
     return (
       <GameScreen
         athletes={athletes}
-        filters={{ sport: challenge?.sport_filter || 'all', conference: 'all', difficulty: 'all', count: athletes.length }}
+        filters={{ sport: challenge?.sport_filter || 'all', conference: 'all', difficulty: 'all', count: athletes.length, team: 'all' }}
         onFinish={handleFinish}
         challengerName={challenge?.player1_name}
         challengerScore={challenge?.player1_score}
