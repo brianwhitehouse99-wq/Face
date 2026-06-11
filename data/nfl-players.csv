@@ -1,0 +1,156 @@
+name,position,team,era,tier,sport
+Patrick Mahomes,QB,Kansas City Chiefs,2017-present,S,NFL
+Tom Brady,QB,New England Patriots,2000-2022,S,NFL
+Peyton Manning,QB,Indianapolis Colts,1998-2015,S,NFL
+Jerry Rice,WR,San Francisco 49ers,1985-2004,S,NFL
+Lawrence Taylor,LB,New York Giants,1981-1993,S,NFL
+Joe Montana,QB,San Francisco 49ers,1979-1994,S,NFL
+Walter Payton,RB,Chicago Bears,1975-1987,S,NFL
+Barry Sanders,RB,Detroit Lions,1989-1998,S,NFL
+Josh Allen,QB,Buffalo Bills,2018-present,A,NFL
+Lamar Jackson,QB,Baltimore Ravens,2018-present,A,NFL
+Aaron Rodgers,QB,Green Bay Packers,2005-present,A,NFL
+Travis Kelce,TE,Kansas City Chiefs,2013-present,A,NFL
+Dan Marino,QB,Miami Dolphins,1983-1999,A,NFL
+Emmitt Smith,RB,Dallas Cowboys,1990-2004,A,NFL
+John Elway,QB,Denver Broncos,1983-1998,A,NFL
+Brett Favre,QB,Green Bay Packers,1991-2010,A,NFL
+Deion Sanders,CB,Atlanta Falcons,1989-2005,A,NFL
+Reggie White,DE,Philadelphia Eagles,1985-2000,A,NFL
+Ray Lewis,LB,Baltimore Ravens,1996-2012,A,NFL
+Randy Moss,WR,Minnesota Vikings,1998-2012,A,NFL
+Bo Jackson,RB,Los Angeles Raiders,1987-1990,A,NFL
+LaDainian Tomlinson,RB,San Diego Chargers,2001-2011,A,NFL
+Troy Aikman,QB,Dallas Cowboys,1989-2000,A,NFL
+Steve Young,QB,San Francisco 49ers,1987-1999,A,NFL
+Terrell Owens,WR,San Francisco 49ers,1996-2010,A,NFL
+Drew Brees,QB,New Orleans Saints,2001-2020,A,NFL
+Adrian Peterson,RB,Minnesota Vikings,2007-2021,A,NFL
+Michael Vick,QB,Atlanta Falcons,2001-2015,A,NFL
+Jim Brown,RB,Cleveland Browns,1957-1965,A,NFL
+Dick Butkus,LB,Chicago Bears,1965-1973,A,NFL
+Joe Namath,QB,New York Jets,1965-1977,A,NFL
+Donovan McNabb,QB,Philadelphia Eagles,1999-2011,A,NFL
+Justin Jefferson,WR,Minnesota Vikings,2020-present,B,NFL
+CeeDee Lamb,WR,Dallas Cowboys,2020-present,B,NFL
+Jalen Hurts,QB,Philadelphia Eagles,2021-present,B,NFL
+Joe Burrow,QB,Cincinnati Bengals,2020-present,B,NFL
+Christian McCaffrey,RB,San Francisco 49ers,2017-present,B,NFL
+Odell Beckham Jr.,WR,New York Giants,2014-present,B,NFL
+Tony Romo,QB,Dallas Cowboys,2003-2016,B,NFL
+Eli Manning,QB,New York Giants,2004-2019,B,NFL
+Marshall Faulk,RB,St. Louis Rams,1994-2005,B,NFL
+Calvin Johnson,WR,Detroit Lions,2007-2015,B,NFL
+Larry Fitzgerald,WR,Arizona Cardinals,2004-2020,B,NFL
+Dak Prescott,QB,Dallas Cowboys,2016-present,B,NFL
+Russell Wilson,QB,Seattle Seahawks,2012-present,B,NFL
+Derrick Henry,RB,Tennessee Titans,2016-present,B,NFL
+Aaron Donald,DT,Los Angeles Rams,2014-2023,B,NFL
+Richard Sherman,CB,Seattle Seahawks,2011-2021,B,NFL
+Ed Reed,S,Baltimore Ravens,2002-2013,B,NFL
+Ronnie Lott,S,San Francisco 49ers,1981-1994,B,NFL
+Mike Ditka,TE,Chicago Bears,1961-1972,B,NFL
+Franco Harris,RB,Pittsburgh Steelers,1972-1984,B,NFL
+Terry Bradshaw,QB,Pittsburgh Steelers,1970-1983,B,NFL
+Roger Staubach,QB,Dallas Cowboys,1969-1979,B,NFL
+Eric Dickerson,RB,Los Angeles Rams,1983-1993,B,NFL
+Tony Dorsett,RB,Dallas Cowboys,1977-1988,B,NFL
+Earl Campbell,RB,Houston Oilers,1978-1985,B,NFL
+Mean Joe Greene,DT,Pittsburgh Steelers,1969-1981,B,NFL
+Bruce Smith,DE,Buffalo Bills,1985-2003,B,NFL
+Fran Tarkenton,QB,Minnesota Vikings,1961-1978,B,NFL
+Jerome Bettis,RB,Pittsburgh Steelers,1993-2005,B,NFL
+Keyshawn Johnson,WR,New York Jets,1996-2006,B,NFL
+Ja'Marr Chase,WR,Cincinnati Bengals,2021-present,B,NFL
+Tyreek Hill,WR,Kansas City Chiefs,2016-present,B,NFL
+T.J. Watt,LB,Pittsburgh Steelers,2017-present,C,NFL
+Micah Parsons,LB,Dallas Cowboys,2021-present,C,NFL
+Justin Herbert,QB,Los Angeles Chargers,2020-present,C,NFL
+Tua Tagovailoa,QB,Miami Dolphins,2020-present,C,NFL
+Stefon Diggs,WR,Buffalo Bills,2015-present,C,NFL
+Davante Adams,WR,Las Vegas Raiders,2014-present,C,NFL
+Kirk Cousins,QB,Atlanta Falcons,2012-present,C,NFL
+Jared Goff,QB,Detroit Lions,2016-present,C,NFL
+Matt Ryan,QB,Atlanta Falcons,2008-2022,C,NFL
+Cam Newton,QB,Carolina Panthers,2011-2021,C,NFL
+Matt Forte,RB,Chicago Bears,2008-2016,C,NFL
+Lance Briggs,LB,Chicago Bears,2003-2014,C,NFL
+Herman Moore,WR,Detroit Lions,1991-2001,C,NFL
+Cris Carter,WR,Minnesota Vikings,1987-2002,C,NFL
+Tim Brown,WR,Los Angeles Raiders,1988-2004,C,NFL
+Andre Reed,WR,Buffalo Bills,1985-2000,C,NFL
+Mark Clayton,WR,Miami Dolphins,1983-1993,C,NFL
+John Randle,DT,Minnesota Vikings,1990-2003,C,NFL
+Warren Sapp,DT,Tampa Bay Buccaneers,1995-2007,C,NFL
+Cortez Kennedy,DT,Seattle Seahawks,1990-2000,C,NFL
+Charles Haley,DE,San Francisco 49ers,1986-1999,C,NFL
+Howie Long,DE,Los Angeles Raiders,1981-1993,C,NFL
+Chris Spielman,LB,Detroit Lions,1988-1995,C,NFL
+Hardy Nickerson,LB,Tampa Bay Buccaneers,1987-2002,C,NFL
+Steve McMichael,DT,Chicago Bears,1981-1993,C,NFL
+Refrigerator Perry,DT,Chicago Bears,1985-1994,C,NFL
+Priest Holmes,RB,Kansas City Chiefs,1997-2007,C,NFL
+Jamal Lewis,RB,Baltimore Ravens,2000-2009,C,NFL
+Shaun Alexander,RB,Seattle Seahawks,2000-2008,C,NFL
+Warrick Dunn,RB,Tampa Bay Buccaneers,1997-2008,C,NFL
+Curtis Martin,RB,New York Jets,1995-2005,C,NFL
+Edgerrin James,RB,Indianapolis Colts,1999-2009,C,NFL
+Ricky Williams,RB,Miami Dolphins,1999-2011,C,NFL
+Clinton Portis,RB,Washington,2002-2010,C,NFL
+Fred Taylor,RB,Jacksonville Jaguars,1998-2010,C,NFL
+Daunte Culpepper,QB,Minnesota Vikings,1999-2009,C,NFL
+Mark Brunell,QB,Jacksonville Jaguars,1994-2011,C,NFL
+Trent Dilfer,QB,Tampa Bay Buccaneers,1994-2007,C,NFL
+Jake Plummer,QB,Arizona Cardinals,1997-2006,C,NFL
+Chad Johnson,WR,Cincinnati Bengals,2001-2011,C,NFL
+Plaxico Burress,WR,New York Giants,2000-2012,C,NFL
+Marvin Harrison,WR,Indianapolis Colts,1996-2008,C,NFL
+Torry Holt,WR,St. Louis Rams,1999-2009,C,NFL
+Isaac Bruce,WR,St. Louis Rams,1994-2009,C,NFL
+Amani Toomer,WR,New York Giants,1996-2008,C,NFL
+Wes Welker,WR,New England Patriots,2004-2015,C,NFL
+Troy Brown,WR,New England Patriots,1993-2007,C,NFL
+Deion Branch,WR,New England Patriots,2002-2012,C,NFL
+Kyle Orton,QB,Chicago Bears,2005-2014,D,NFL
+Trent Green,QB,Kansas City Chiefs,1997-2007,D,NFL
+Drew Bledsoe,QB,New England Patriots,1993-2006,D,NFL
+Elvis Grbac,QB,Kansas City Chiefs,1994-2001,D,NFL
+Kordell Stewart,QB,Pittsburgh Steelers,1995-2005,D,NFL
+Quincy Carter,QB,Dallas Cowboys,2001-2004,D,NFL
+Jonathan Quinn,QB,Chicago Bears,2002-2006,D,NFL
+Cade McNown,QB,Chicago Bears,1999-2000,D,NFL
+Jim Harbaugh,QB,Chicago Bears,1987-2000,D,NFL
+Erik Kramer,QB,Chicago Bears,1994-1998,D,NFL
+Nate Burleson,WR,Seattle Seahawks,2003-2013,D,NFL
+Ike Taylor,CB,Pittsburgh Steelers,2003-2014,D,NFL
+Chris Hope,S,Pittsburgh Steelers,2002-2012,D,NFL
+Dunta Robinson,CB,Houston Texans,2004-2013,D,NFL
+Nnamdi Asomugha,CB,Oakland Raiders,2003-2013,D,NFL
+Cory Schlesinger,FB,Detroit Lions,1995-2006,D,NFL
+Mike Alstott,FB,Tampa Bay Buccaneers,1996-2007,D,NFL
+Tyrone Wheatley,RB,New York Giants,1995-2003,D,NFL
+Garrison Hearst,RB,San Francisco 49ers,1993-2004,D,NFL
+James Stewart,RB,Jacksonville Jaguars,1995-2002,D,NFL
+Thomas Jones,RB,Arizona Cardinals,2000-2011,D,NFL
+Kevin Faulk,RB,New England Patriots,1999-2011,D,NFL
+Patrick Pass,RB,New England Patriots,2000-2006,D,NFL
+David Patten,WR,New England Patriots,2001-2007,D,NFL
+Reche Caldwell,WR,San Diego Chargers,2002-2007,D,NFL
+Donte' Stallworth,WR,Philadelphia Eagles,2002-2012,D,NFL
+Bobby Engram,WR,Seattle Seahawks,1996-2008,D,NFL
+Marcus Robinson,WR,Chicago Bears,1997-2005,D,NFL
+Mushin Muhammad,WR,Chicago Bears,1996-2008,D,NFL
+David Terrell,WR,Chicago Bears,2001-2004,D,NFL
+Marty Booker,WR,Chicago Bears,2000-2007,D,NFL
+Justin Gage,WR,Chicago Bears,2003-2011,D,NFL
+Bernard Berrian,WR,Chicago Bears,2004-2012,D,NFL
+Rashied Davis,WR,Chicago Bears,2005-2010,D,NFL
+Earl Bennett,WR,Chicago Bears,2008-2012,D,NFL
+Devin Hester,WR,Chicago Bears,2006-2016,D,NFL
+Kevin Jones,RB,Detroit Lions,2004-2007,D,NFL
+Artose Pinner,RB,Detroit Lions,2003-2007,D,NFL
+Cory Redding,DT,Detroit Lions,2003-2010,D,NFL
+Boss Bailey,LB,Detroit Lions,2003-2008,D,NFL
+Shaun Rogers,DT,Detroit Lions,2001-2011,D,NFL
+Jeff Backus,OT,Detroit Lions,2001-2012,D,NFL
+Dominic Raiola,C,Detroit Lions,2001-2012,D,NFL

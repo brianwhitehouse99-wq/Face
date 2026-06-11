@@ -1,0 +1,94 @@
+name,position,team,era,tier,sport
+Babe Ruth,RF,New York Yankees,1914-1935,S,MLB
+Willie Mays,CF,New York Giants,1951-1973,S,MLB
+Hank Aaron,RF,Milwaukee Braves,1954-1976,S,MLB
+Mickey Mantle,CF,New York Yankees,1951-1968,S,MLB
+Ted Williams,LF,Boston Red Sox,1939-1960,S,MLB
+Joe DiMaggio,CF,New York Yankees,1936-1951,S,MLB
+Derek Jeter,SS,New York Yankees,1995-2014,A,MLB
+Barry Bonds,LF,San Francisco Giants,1986-2007,A,MLB
+Mike Trout,CF,Los Angeles Angels,2011-present,A,MLB
+Shohei Ohtani,P/DH,Los Angeles Angels,2018-present,A,MLB
+Ken Griffey Jr.,CF,Seattle Mariners,1989-2010,A,MLB
+Cal Ripken Jr.,SS,Baltimore Orioles,1981-2001,A,MLB
+Randy Johnson,P,Seattle Mariners,1988-2009,A,MLB
+Roger Clemens,P,Boston Red Sox,1984-2007,A,MLB
+Greg Maddux,P,Atlanta Braves,1986-2008,A,MLB
+Tom Seaver,P,New York Mets,1967-1986,A,MLB
+Nolan Ryan,P,New York Mets,1966-1993,A,MLB
+Pete Rose,3B,Cincinnati Reds,1963-1986,A,MLB
+Tony Gwynn,RF,San Diego Padres,1982-2001,A,MLB
+Rickey Henderson,LF,Oakland Athletics,1979-2003,A,MLB
+Roberto Clemente,RF,Pittsburgh Pirates,1955-1972,A,MLB
+Sandy Koufax,P,Los Angeles Dodgers,1955-1966,A,MLB
+Reggie Jackson,RF,Oakland Athletics,1967-1987,A,MLB
+Johnny Bench,C,Cincinnati Reds,1967-1983,A,MLB
+Rod Carew,1B,Minnesota Twins,1967-1985,A,MLB
+Aaron Judge,RF,New York Yankees,2016-present,B,MLB
+Mookie Betts,RF,Los Angeles Dodgers,2014-present,B,MLB
+Ronald Acuna Jr.,RF,Atlanta Braves,2018-present,B,MLB
+Freddie Freeman,1B,Los Angeles Dodgers,2010-present,B,MLB
+Bryce Harper,RF,Philadelphia Phillies,2012-present,B,MLB
+Clayton Kershaw,P,Los Angeles Dodgers,2008-present,B,MLB
+Max Scherzer,P,Washington Nationals,2008-present,B,MLB
+Albert Pujols,1B,St. Louis Cardinals,2001-2022,B,MLB
+Alex Rodriguez,SS,Seattle Mariners,1994-2016,B,MLB
+Ichiro Suzuki,RF,Seattle Mariners,2001-2019,B,MLB
+Pedro Martinez,P,Boston Red Sox,1992-2009,B,MLB
+Mariano Rivera,RP,New York Yankees,1995-2013,B,MLB
+David Ortiz,DH,Boston Red Sox,1997-2016,B,MLB
+Chipper Jones,3B,Atlanta Braves,1993-2012,B,MLB
+Jim Thome,1B,Cleveland Indians,1991-2012,B,MLB
+Manny Ramirez,LF,Cleveland Indians,1993-2011,B,MLB
+Vladimir Guerrero,RF,Montreal Expos,1996-2011,B,MLB
+Ivan Rodriguez,C,Texas Rangers,1991-2011,B,MLB
+Frank Thomas,1B,Chicago White Sox,1990-2008,B,MLB
+John Smoltz,P,Atlanta Braves,1988-2009,B,MLB
+Tom Glavine,P,Atlanta Braves,1987-2008,B,MLB
+Jose Canseco,RF,Oakland Athletics,1985-2001,B,MLB
+Mark McGwire,1B,Oakland Athletics,1986-2001,B,MLB
+Sammy Sosa,RF,Chicago Cubs,1989-2007,B,MLB
+George Brett,3B,Kansas City Royals,1973-1993,B,MLB
+Paul Konerko,1B,Chicago White Sox,1997-2014,C,MLB
+Mark Buehrle,P,Chicago White Sox,2000-2015,C,MLB
+Carlos Zambrano,P,Chicago Cubs,2001-2012,C,MLB
+Anthony Rizzo,1B,Chicago Cubs,2011-present,C,MLB
+Jon Lester,P,Boston Red Sox,2006-2021,C,MLB
+Kyle Schwarber,LF,Chicago Cubs,2015-present,C,MLB
+Kris Bryant,3B,Chicago Cubs,2015-present,C,MLB
+Javier Baez,SS,Chicago Cubs,2014-present,C,MLB
+Jake Arrieta,P,Chicago Cubs,2010-2022,C,MLB
+Jason Varitek,C,Boston Red Sox,1997-2011,C,MLB
+Nomar Garciaparra,SS,Boston Red Sox,1996-2009,C,MLB
+Trot Nixon,RF,Boston Red Sox,1996-2008,C,MLB
+Kevin Millar,1B,Boston Red Sox,2003-2009,C,MLB
+Bill Mueller,3B,Boston Red Sox,2003-2006,C,MLB
+Mark Loretta,2B,Boston Red Sox,2006-2007,C,MLB
+Mike Lowell,3B,Boston Red Sox,2006-2010,C,MLB
+Jacoby Ellsbury,CF,Boston Red Sox,2007-2017,C,MLB
+Dustin Pedroia,2B,Boston Red Sox,2006-2019,C,MLB
+Kevin Youkilis,3B,Boston Red Sox,2004-2013,C,MLB
+Josh Beckett,P,Boston Red Sox,2006-2014,C,MLB
+Curt Schilling,P,Boston Red Sox,2004-2007,C,MLB
+Keith Hernandez,1B,New York Mets,1974-1990,C,MLB
+Gary Carter,C,New York Mets,1974-1992,C,MLB
+Dwight Gooden,P,New York Mets,1984-2000,C,MLB
+Darryl Strawberry,RF,New York Mets,1983-1999,C,MLB
+Ron Darling,P,New York Mets,1983-1995,C,MLB
+Lenny Dykstra,CF,New York Mets,1985-1996,C,MLB
+Neifi Perez,SS,Colorado Rockies,1996-2007,D,MLB
+Steve Trachsel,P,Chicago Cubs,1993-2008,D,MLB
+Dave Roberts,CF,San Diego Padres,1999-2008,D,MLB
+Todd Hollandsworth,LF,Los Angeles Dodgers,1995-2006,D,MLB
+Mike Remlinger,RP,Chicago Cubs,1991-2006,D,MLB
+Tom Gordon,RP,Chicago Cubs,1988-2009,D,MLB
+LaTroy Hawkins,RP,Minnesota Twins,1995-2015,D,MLB
+Scott Eyre,RP,Chicago White Sox,1997-2009,D,MLB
+Joe Borowski,RP,Chicago Cubs,1995-2008,D,MLB
+Matt Clement,P,Chicago Cubs,2001-2008,D,MLB
+Kerry Wood,P,Chicago Cubs,1998-2012,D,MLB
+Mark Prior,P,Chicago Cubs,2002-2006,D,MLB
+Corey Patterson,CF,Chicago Cubs,2000-2011,D,MLB
+Moises Alou,LF,Chicago Cubs,2002-2008,D,MLB
+Aramis Ramirez,3B,Chicago Cubs,2003-2015,D,MLB
+Derrek Lee,1B,Chicago Cubs,2004-2010,D,MLB

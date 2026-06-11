@@ -1,0 +1,96 @@
+name,position,team,era,tier,sport
+Michael Jordan,SG,Chicago Bulls,1984-2003,S,NBA
+LeBron James,SF,Cleveland Cavaliers,2003-present,S,NBA
+Kobe Bryant,SG,Los Angeles Lakers,1996-2016,S,NBA
+Magic Johnson,PG,Los Angeles Lakers,1979-1996,S,NBA
+Larry Bird,SF,Boston Celtics,1979-1992,S,NBA
+Shaquille O'Neal,C,Los Angeles Lakers,1992-2011,S,NBA
+Stephen Curry,PG,Golden State Warriors,2009-present,S,NBA
+Kevin Durant,SF,Oklahoma City Thunder,2007-present,A,NBA
+Giannis Antetokounmpo,PF,Milwaukee Bucks,2013-present,A,NBA
+Kareem Abdul-Jabbar,C,Milwaukee Bucks,1969-1989,A,NBA
+Wilt Chamberlain,C,Philadelphia Warriors,1959-1973,A,NBA
+Bill Russell,C,Boston Celtics,1956-1969,A,NBA
+Charles Barkley,PF,Philadelphia 76ers,1984-2000,A,NBA
+Allen Iverson,PG,Philadelphia 76ers,1996-2010,A,NBA
+Hakeem Olajuwon,C,Houston Rockets,1984-2002,A,NBA
+Patrick Ewing,C,New York Knicks,1985-2002,A,NBA
+Scottie Pippen,SF,Chicago Bulls,1987-2004,A,NBA
+Dennis Rodman,PF,Chicago Bulls,1986-2000,A,NBA
+Dirk Nowitzki,PF,Dallas Mavericks,1998-2019,A,NBA
+Tim Duncan,PF,San Antonio Spurs,1997-2016,A,NBA
+Dwyane Wade,SG,Miami Heat,2003-2019,A,NBA
+Chris Paul,PG,Phoenix Suns,2005-present,A,NBA
+Kyrie Irving,PG,Brooklyn Nets,2011-present,A,NBA
+James Harden,SG,Houston Rockets,2009-present,A,NBA
+Russell Westbrook,PG,Oklahoma City Thunder,2008-present,A,NBA
+Luka Doncic,PG,Dallas Mavericks,2018-present,A,NBA
+Joel Embiid,C,Philadelphia 76ers,2016-present,A,NBA
+Nikola Jokic,C,Denver Nuggets,2015-present,A,NBA
+Jayson Tatum,SF,Boston Celtics,2017-present,B,NBA
+Ja Morant,PG,Memphis Grizzlies,2019-present,B,NBA
+Anthony Davis,C,Los Angeles Lakers,2012-present,B,NBA
+Damian Lillard,PG,Portland Trail Blazers,2012-present,B,NBA
+Kawhi Leonard,SF,San Antonio Spurs,2011-present,B,NBA
+Paul George,SF,Oklahoma City Thunder,2010-present,B,NBA
+Zion Williamson,PF,New Orleans Pelicans,2019-present,B,NBA
+Karl Malone,PF,Utah Jazz,1985-2004,B,NBA
+John Stockton,PG,Utah Jazz,1984-2003,B,NBA
+Clyde Drexler,SG,Portland Trail Blazers,1983-1998,B,NBA
+Gary Payton,PG,Seattle SuperSonics,1990-2007,B,NBA
+Alonzo Mourning,C,Miami Heat,1992-2008,B,NBA
+Reggie Miller,SG,Indiana Pacers,1987-2005,B,NBA
+Chris Webber,PF,Sacramento Kings,1993-2008,B,NBA
+Vince Carter,SG,Toronto Raptors,1998-2020,B,NBA
+Tracy McGrady,SG,Toronto Raptors,1997-2013,B,NBA
+Steve Nash,PG,Phoenix Suns,1996-2014,B,NBA
+Ray Allen,SG,Milwaukee Bucks,1996-2014,B,NBA
+Paul Pierce,SF,Boston Celtics,1998-2017,B,NBA
+Kevin Garnett,PF,Minnesota Timberwolves,1995-2016,B,NBA
+Carmelo Anthony,SF,Denver Nuggets,2003-2022,B,NBA
+Derrick Rose,PG,Chicago Bulls,2008-2021,B,NBA
+Blake Griffin,PF,Los Angeles Clippers,2009-2021,B,NBA
+Devin Booker,SG,Phoenix Suns,2015-present,B,NBA
+Trae Young,PG,Atlanta Hawks,2018-present,B,NBA
+Bradley Beal,SG,Washington Wizards,2012-present,C,NBA
+Jrue Holiday,PG,Boston Celtics,2009-present,C,NBA
+Joakim Noah,C,Chicago Bulls,2007-2018,C,NBA
+Richard Hamilton,SG,Detroit Pistons,1999-2013,C,NBA
+Ben Wallace,C,Detroit Pistons,1996-2012,C,NBA
+Chauncey Billups,PG,Detroit Pistons,1997-2014,C,NBA
+Rasheed Wallace,PF,Detroit Pistons,1995-2012,C,NBA
+Tayshaun Prince,SF,Detroit Pistons,2002-2015,C,NBA
+Antonio McDyess,PF,Denver Nuggets,1995-2011,C,NBA
+Antawn Jamison,PF,Golden State Warriors,1998-2014,C,NBA
+Mike Bibby,PG,Sacramento Kings,1998-2012,C,NBA
+Peja Stojakovic,SF,Sacramento Kings,1998-2011,C,NBA
+Brad Miller,C,Sacramento Kings,1998-2011,C,NBA
+Metta World Peace,SF,Los Angeles Lakers,1999-2017,C,NBA
+Ron Artest,SF,Indiana Pacers,1999-2017,C,NBA
+Stephen Jackson,SG,Indiana Pacers,2000-2014,C,NBA
+Jermaine O'Neal,C,Indiana Pacers,1996-2014,C,NBA
+Lamar Odom,PF,Los Angeles Lakers,1999-2014,C,NBA
+Andrew Bynum,C,Los Angeles Lakers,2005-2014,C,NBA
+Pau Gasol,C,Los Angeles Lakers,2001-2019,C,NBA
+Tony Parker,PG,San Antonio Spurs,2001-2019,C,NBA
+Manu Ginobili,SG,San Antonio Spurs,2002-2018,C,NBA
+Luol Deng,SF,Chicago Bulls,2004-2019,C,NBA
+Kirk Hinrich,PG,Chicago Bulls,2003-2016,C,NBA
+Ben Gordon,SG,Chicago Bulls,2004-2015,C,NBA
+Andres Nocioni,SF,Chicago Bulls,2004-2012,C,NBA
+Boris Diaw,PF,San Antonio Spurs,2003-2017,C,NBA
+Beno Udrih,PG,San Antonio Spurs,2004-2016,D,NBA
+Mike Sweetney,PF,Chicago Bulls,2003-2009,D,NBA
+Jason Collins,C,New Jersey Nets,2001-2014,D,NBA
+Ime Udoka,SF,Portland Trail Blazers,2004-2011,D,NBA
+Darius Miles,SF,Los Angeles Clippers,2000-2008,D,NBA
+Kwame Brown,C,Washington Wizards,2001-2013,D,NBA
+Eddie Curry,C,Chicago Bulls,2001-2011,D,NBA
+Jay Williams,PG,Chicago Bulls,2002-2006,D,NBA
+Marcus Fizer,PF,Chicago Bulls,2000-2007,D,NBA
+Roger Mason Jr.,SG,Chicago Bulls,2003-2013,D,NBA
+Linton Johnson,PF,Chicago Bulls,2005-2008,D,NBA
+Adrian Griffin,SF,Chicago Bulls,1999-2008,D,NBA
+Othella Harrington,C,Chicago Bulls,1996-2007,D,NBA
+Trenton Hassell,SG,Chicago Bulls,2001-2010,D,NBA
+Tyson Chandler,C,Chicago Bulls,2001-2015,D,NBA
