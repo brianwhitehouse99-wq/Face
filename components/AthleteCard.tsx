@@ -89,7 +89,7 @@ export default function AthleteCard({ athlete, athleteIndex, totalAthletes, onRe
   return (
     <div className="w-full max-w-lg mx-auto">
       <div className="relative w-full h-72 sm:h-80 rounded-2xl overflow-hidden bg-zinc-800 mb-4">
-        <img src={athlete.photo_url} alt="Athlete photo" className="w-full h-full object-cover object-top" />
+        <img src={athlete.photo_url} alt="Athlete photo" className="w-full h-full object-cover object-top" onError={(e) => { (e.target as HTMLImageElement).src = "https://placehold.co/400x400/27272a/71717a?text=No+Photo" }} />
         <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
           {athlete.sport} {athlete.conference ? `· ${athlete.conference}` : ''}
         </div>
