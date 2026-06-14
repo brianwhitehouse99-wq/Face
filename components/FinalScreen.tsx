@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 type Athlete = {
   id: number
@@ -32,6 +32,12 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
   const [leaderboardLink, setLeaderboardLink] = useState('')
   const [creating, setCreating] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+
+  useEffect(() => {
+    if (challengeId && playerNamePrefill) {
+      submitToChallenge()
+    }
+  }, [])
 
   const pct = correct / total
   const maxScore = total * 100
