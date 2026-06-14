@@ -3,10 +3,10 @@
 import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import GameScreen from '@/components/GameScreen'
-import ChallengeResults from '@/components/ChallengeResults'
+import FinalScreen from '@/components/FinalScreen'
 import { Athlete } from '@/lib/supabase'
 
-type Screen = 'loading' | 'enter-name' | 'already-complete' | 'game' | 'results'
+type Screen = 'loading' | 'enter-name' | 'game' | 'results'
 
 function ChallengePageInner() {
   const searchParams = useSearchParams()
@@ -18,6 +18,7 @@ function ChallengePageInner() {
   const [playerName, setPlayerName] = useState('')
   const [finalScore, setFinalScore] = useState(0)
   const [finalCorrect, setFinalCorrect] = useState(0)
+  const [results, setResults] = useState<boolean[]>([])
   const [error, setError] = useState('')
 
   useEffect(() => {
@@ -28,39 +29,16 @@ function ChallengePageInner() {
   async function fetchChallenge() {
     const res = await fetch(`/api/challenges?id=${challengeId}`)
     const data = await res.json()
-
     if (!res.ok) { setError(data.error || 'Challenge not found'); return }
-
     setChallenge(data.challenge)
     setAthletes(data.athletes || [])
-
-    if (data.challenge.player2_completed_at) {
-      setScreen('already-complete')
-    } else {
-      setScreen('enter-name')
-    }
+    setScreen('enter-name')
   }
 
-  async function handleFinish(correct: number, totalScore: number) {
+  async function handleFinish(correct: number, totalScore: number, ids: number[], gameResults: boolean[]) {
     setFinalCorrect(correct)
     setFinalScore(totalScore)
-
-    // Save player 2's results
-    await fetch('/api/challenges/accept', {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        id: challengeId,
-        player2Name: playerName,
-        player2Score: totalScore,
-        player2Correct: correct,
-      }),
-    })
-
-    // Refresh challenge data to get full results
-    const res = await fetch(`/api/challenges?id=${challengeId}`)
-    const data = await res.json()
-    setChallenge(data.challenge)
+    setResults(gameResults)
     setScreen('results')
   }
 
@@ -98,7 +76,7 @@ function ChallengePageInner() {
           <h1 className="text-5xl font-black tracking-tighter mb-2">Face<span className="text-yellow-400">.</span></h1>
           <p className="text-zinc-400 mb-8">
             <span className="text-white font-semibold">{challenge?.player1_name}</span> challenged you!
-            <br />Can you beat their score of <span className="text-yellow-400 font-bold">{challenge?.player1_score?.toLocaleString()} pts</span>?
+            <br />Can you beat their score of <span className="text-yellow-400 font-bold">{challenge?.player1_score} pts</span>?
           </p>
           <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
             <p className="text-zinc-400 text-sm mb-4">Enter your name to start</p>
@@ -124,32 +102,34 @@ function ChallengePageInner() {
     )
   }
 
-  if (screen === 'already-complete') {
-    return (
-      <div className="min-h-screen bg-zinc-950 text-white flex items-center justify-center px-4">
-        <div className="w-full max-w-md text-center">
-          <h1 className="text-5xl font-black tracking-tighter mb-4">Face<span className="text-yellow-400">.</span></h1>
-          <p className="text-zinc-400 mb-6">This challenge has already been completed!</p>
-          <a href="/" className="px-6 py-3 bg-yellow-400 text-black font-bold rounded-xl">Start a new game</a>
-        </div>
-      </div>
-    )
-  }
-
   if (screen === 'game' && athletes.length > 0) {
     return (
       <GameScreen
         athletes={athletes}
         filters={{ sport: challenge?.sport_filter || 'all', conference: 'all', difficulty: 'all', count: athletes.length, team: 'all' }}
         onFinish={handleFinish}
+        onHome={() => window.location.href = '/'}
         challengerName={challenge?.player1_name}
         challengerScore={challenge?.player1_score}
       />
     )
   }
 
-  if (screen === 'results' && challenge) {
-    return <ChallengeResults challenge={challenge} />
+  if (screen === 'results') {
+    return (
+      <FinalScreen
+        correct={finalCorrect}
+        total={athletes.length}
+        totalScore={finalScore}
+        athletes={athletes}
+        results={results}
+        sportFilter={challenge?.sport_filter}
+        onReplay={() => window.location.href = '/'}
+        challengeId={challengeId || undefined}
+        challengerName={challenge?.player1_name}
+        challengerScore={challenge?.player1_score}
+      />
+    )
   }
 
   return null

@@ -19,18 +19,36 @@ type Props = {
   athletes?: Athlete[]
   results?: boolean[]
   onReplay: () => void
+  challengeId?: string
+  challengerName?: string
+  challengerScore?: number
 }
 
-export default function FinalScreen({ correct, total, totalScore, athleteIds, sportFilter, athletes, results, onReplay }: Props) {
+export default function FinalScreen({ correct, total, totalScore, athleteIds, sportFilter, athletes, results, onReplay, challengeId, challengerName, challengerScore }: Props) {
   const [showChallenge, setShowChallenge] = useState(false)
   const [playerName, setPlayerName] = useState('')
   const [challengeLink, setChallengeLink] = useState('')
+  const [leaderboardLink, setLeaderboardLink] = useState('')
   const [creating, setCreating] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
   const pct = correct / total
   const maxScore = total * 100
-  const messages = ['Tough one — check back tomorrow!', 'Not bad, keep at it!', 'Nice game!', 'Perfect score! You really know your athletes.']
+  const messages = ['Tough one — keep practicing!', 'Not bad, keep at it!', 'Nice game!', 'Perfect score! You really know your athletes.']
   const msgIndex = pct === 0 ? 0 : pct < 0.5 ? 1 : pct < 1 ? 2 : 3
+
+  async function submitToChallenge() {
+    if (!playerName.trim() || !challengeId) return
+    setCreating(true)
+    await fetch('/api/challenges', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ challengeId, playerName, score: totalScore, correct }),
+    })
+    setLeaderboardLink(`${window.location.origin}/leaderboard?id=${challengeId}`)
+    setSubmitted(true)
+    setCreating(false)
+  }
 
   async function createChallenge() {
     if (!playerName.trim()) return
@@ -43,7 +61,9 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
     const data = await res.json()
     if (data.challenge) {
       const link = `${window.location.origin}/challenge?id=${data.challenge.id}`
+      const lbLink = `${window.location.origin}/leaderboard?id=${data.challenge.id}`
       setChallengeLink(link)
+      setLeaderboardLink(lbLink)
       navigator.clipboard.writeText(link)
     }
     setCreating(false)
@@ -51,7 +71,7 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
 
   function shareResult() {
     const emoji = Array.from({ length: total }, (_, i) => (results?.[i] ? '🟡' : '⚫')).join('')
-    const text = `Face. ${new Date().toLocaleDateString()}\n${correct}/${total} ${emoji}\n${totalScore.toLocaleString()} pts\nPlay at face.app`
+    const text = `Face. ${new Date().toLocaleDateString()}\n${correct}/${total} ${emoji}\n${totalScore} pts\nface-nu-pied.vercel.app`
     navigator.clipboard.writeText(text).then(() => alert('Result copied!'))
   }
 
@@ -59,15 +79,23 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
     <div className="min-h-screen bg-zinc-950 text-white px-4 py-10">
       <div className="w-full max-w-lg mx-auto text-center">
         <h1 className="text-5xl font-black tracking-tighter mb-6">Face<span className="text-yellow-400">.</span></h1>
+
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl px-8 py-6 mb-6">
           <div className="text-6xl font-black tracking-tighter text-yellow-400 mb-1">{totalScore.toLocaleString()}</div>
           <div className="text-zinc-400 text-sm">total points</div>
+          {challengerName && challengerScore !== undefined && (
+            <div className={`mt-3 text-sm font-semibold ${totalScore > challengerScore ? 'text-emerald-400' : 'text-red-400'}`}>
+              {totalScore > challengerScore ? `🏆 You beat ${challengerName}!` : `${challengerName} scored ${challengerScore} pts`}
+            </div>
+          )}
           <div className="border-t border-zinc-800 mt-4 pt-4 flex justify-center gap-8">
             <div><div className="text-2xl font-bold">{correct}/{total}</div><div className="text-zinc-500 text-xs">correct</div></div>
             <div><div className="text-2xl font-bold">{Math.round((totalScore / maxScore) * 100)}%</div><div className="text-zinc-500 text-xs">of max score</div></div>
           </div>
         </div>
+
         <p className="text-zinc-300 text-lg mb-6">{messages[msgIndex]}</p>
+
         {athletes && athletes.length > 0 && (
           <div className="mb-8">
             <p className="text-zinc-500 text-xs uppercase tracking-widest mb-3">Today's athletes</p>
@@ -89,10 +117,32 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
             </div>
           </div>
         )}
-        {!challengeLink && !showChallenge && (
+
+        {challengeId && !submitted && (
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-left mb-4">
+            <p className="text-white font-semibold mb-1">Add your score to the leaderboard!</p>
+            <p className="text-zinc-500 text-sm mb-4">Enter your name to save your score</p>
+            <input type="text" value={playerName} onChange={e => setPlayerName(e.target.value)} onKeyDown={e => e.key === 'Enter' && submitToChallenge()} placeholder="Your name..." className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-yellow-400 transition-colors mb-3" autoFocus />
+            <button onClick={submitToChallenge} disabled={!playerName.trim() || creating} className="w-full py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-all disabled:opacity-40">
+              {creating ? 'Saving...' : 'Save my score'}
+            </button>
+          </div>
+        )}
+
+        {challengeId && submitted && leaderboardLink && (
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-left mb-4">
+            <p className="text-emerald-400 font-semibold mb-1">✓ Score saved!</p>
+            <p className="text-zinc-500 text-sm mb-3">Check the leaderboard to see how you rank</p>
+            <a href={leaderboardLink} className="block w-full py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-all text-center">
+              View leaderboard →
+            </a>
+          </div>
+        )}
+
+        {!challengeId && !challengeLink && !showChallenge && (
           <div className="flex flex-col gap-3">
             <button onClick={() => setShowChallenge(true)} className="w-full py-4 bg-yellow-400 hover:bg-yellow-300 active:scale-[0.98] text-black font-bold text-base rounded-xl transition-all">
-              ⚔️ Challenge a friend
+              ⚔️ Challenge friends
             </button>
             <button onClick={shareResult} className="w-full py-4 bg-zinc-800 hover:bg-zinc-700 active:scale-[0.98] text-white font-semibold text-base rounded-xl transition-all">
               Share result
@@ -102,28 +152,38 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
             </button>
           </div>
         )}
-        {showChallenge && !challengeLink && (
+
+        {!challengeId && showChallenge && !challengeLink && (
           <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-left">
-            <p className="text-white font-semibold mb-1">Challenge a friend!</p>
-            <p className="text-zinc-500 text-sm mb-4">Enter your name to create a challenge link</p>
+            <p className="text-white font-semibold mb-1">Challenge your friends!</p>
+            <p className="text-zinc-500 text-sm mb-4">Enter your name to create a group challenge — up to 10 players can compete!</p>
             <input type="text" value={playerName} onChange={e => setPlayerName(e.target.value)} onKeyDown={e => e.key === 'Enter' && createChallenge()} placeholder="Your name..." className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-yellow-400 transition-colors mb-3" autoFocus />
             <button onClick={createChallenge} disabled={!playerName.trim() || creating} className="w-full py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-all disabled:opacity-40">
-              {creating ? 'Creating...' : 'Create challenge link'}
+              {creating ? 'Creating...' : 'Create challenge'}
             </button>
           </div>
         )}
-        {challengeLink && (
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-left mb-4">
-            <p className="text-emerald-400 font-semibold mb-1">✓ Challenge created!</p>
-            <p className="text-zinc-500 text-sm mb-3">Link copied — send it to your friend!</p>
-            <div className="bg-zinc-800 rounded-xl px-4 py-3 text-zinc-300 text-sm break-all mb-3">{challengeLink}</div>
-            <button onClick={() => navigator.clipboard.writeText(challengeLink).then(() => alert('Copied!'))} className="w-full py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-all">Copy link again</button>
+
+        {!challengeId && challengeLink && (
+          <div className="flex flex-col gap-3">
+            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-left">
+              <p className="text-emerald-400 font-semibold mb-1">✓ Challenge created!</p>
+              <p className="text-zinc-500 text-sm mb-3">Share this link with up to 10 friends</p>
+              <div className="bg-zinc-800 rounded-xl px-4 py-3 text-zinc-300 text-sm break-all mb-3">{challengeLink}</div>
+              <button onClick={() => navigator.clipboard.writeText(challengeLink).then(() => alert('Copied!'))} className="w-full py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-all">
+                Copy challenge link
+              </button>
+            </div>
+            <a href={leaderboardLink} className="w-full py-4 bg-zinc-800 hover:bg-zinc-700 text-white font-semibold rounded-xl transition-all text-center block">
+              View leaderboard →
+            </a>
+            <button onClick={onReplay} className="w-full py-4 bg-zinc-800 hover:bg-zinc-700 text-white font-semibold rounded-xl transition-all">
+              Play again
+            </button>
           </div>
         )}
-        {challengeLink && (
-          <button onClick={onReplay} className="w-full py-4 bg-zinc-800 hover:bg-zinc-700 text-white font-semibold rounded-xl transition-all mt-3">Play again</button>
-        )}
-        <p className="text-zinc-600 text-sm mt-8">Come back tomorrow for new athletes</p>
+
+        <p className="text-zinc-600 text-sm mt-8">face-nu-pied.vercel.app</p>
       </div>
     </div>
   )
