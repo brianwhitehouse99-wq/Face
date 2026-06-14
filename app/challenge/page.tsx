@@ -126,6 +126,7 @@ function ChallengePageInner() {
         sportFilter={challenge?.sport_filter}
         onReplay={() => window.location.href = '/'}
         challengeId={challengeId || undefined}
+        playerNamePrefill={playerName}
         challengerName={challenge?.player1_name}
         challengerScore={challenge?.player1_score}
       />

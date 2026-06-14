@@ -20,13 +20,14 @@ type Props = {
   results?: boolean[]
   onReplay: () => void
   challengeId?: string
+  playerNamePrefill?: string
   challengerName?: string
   challengerScore?: number
 }
 
-export default function FinalScreen({ correct, total, totalScore, athleteIds, sportFilter, athletes, results, onReplay, challengeId, challengerName, challengerScore }: Props) {
+export default function FinalScreen({ correct, total, totalScore, athleteIds, sportFilter, athletes, results, onReplay, challengeId, playerNamePrefill, challengerName, challengerScore }: Props) {
   const [showChallenge, setShowChallenge] = useState(false)
-  const [playerName, setPlayerName] = useState('')
+  const [playerName, setPlayerName] = useState(playerNamePrefill || '')
   const [challengeLink, setChallengeLink] = useState('')
   const [leaderboardLink, setLeaderboardLink] = useState('')
   const [creating, setCreating] = useState(false)
@@ -121,11 +122,22 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
         {challengeId && !submitted && (
           <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-left mb-4">
             <p className="text-white font-semibold mb-1">Add your score to the leaderboard!</p>
-            <p className="text-zinc-500 text-sm mb-4">Enter your name to save your score</p>
-            <input type="text" value={playerName} onChange={e => setPlayerName(e.target.value)} onKeyDown={e => e.key === 'Enter' && submitToChallenge()} placeholder="Your name..." className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-yellow-400 transition-colors mb-3" autoFocus />
-            <button onClick={submitToChallenge} disabled={!playerName.trim() || creating} className="w-full py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-all disabled:opacity-40">
-              {creating ? 'Saving...' : 'Save my score'}
-            </button>
+            {playerName ? (
+              <div>
+                <p className="text-zinc-500 text-sm mb-4">Saving as <span className="text-white font-semibold">{playerName}</span></p>
+                <button onClick={submitToChallenge} disabled={creating} className="w-full py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-all disabled:opacity-40">
+                  {creating ? 'Saving...' : 'Save my score'}
+                </button>
+              </div>
+            ) : (
+              <div>
+                <p className="text-zinc-500 text-sm mb-4">Enter your name to save your score</p>
+                <input type="text" value={playerName} onChange={e => setPlayerName(e.target.value)} onKeyDown={e => e.key === 'Enter' && submitToChallenge()} placeholder="Your name..." className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-yellow-400 transition-colors mb-3" autoFocus />
+                <button onClick={submitToChallenge} disabled={!playerName.trim() || creating} className="w-full py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-all disabled:opacity-40">
+                  {creating ? 'Saving...' : 'Save my score'}
+                </button>
+              </div>
+            )}
           </div>
         )}
 
