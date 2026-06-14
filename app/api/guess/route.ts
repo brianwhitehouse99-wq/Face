@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
 
-// Levenshtein distance — measures how many edits needed to turn one string into another
 function levenshtein(a: string, b: string): number {
   const m = a.length
   const n = b.length
@@ -18,7 +17,6 @@ function levenshtein(a: string, b: string): number {
   return dp[m][n]
 }
 
-// Similarity score 0-1 (1 = identical)
 function similarity(a: string, b: string): number {
   if (a === b) return 1
   const maxLen = Math.max(a.length, b.length)
@@ -27,7 +25,14 @@ function similarity(a: string, b: string): number {
 }
 
 function normalize(s: string): string {
-  return s.toLowerCase().trim().replace(/[^a-z ]/g, '')
+  return s
+    .toLowerCase()
+    .trim()
+    .normalize('NFD')                    // decompose accented chars
+    .replace(/[\u0300-\u036f]/g, '')    // remove accent marks
+    .replace(/[^a-z ]/g, '')            // remove non-alpha
+    .replace(/\s+/g, ' ')              // collapse spaces
+    .trim()
 }
 
 function checkGuess(guess: string, athlete: any): boolean {
@@ -39,22 +44,15 @@ function checkGuess(guess: string, athlete: any): boolean {
   const firstName = parts[0] || ''
   const lastName = parts[parts.length - 1] || ''
 
-  // 1. Exact match on full name, first name, or last name
   if (g === fullName || g === firstName || g === lastName) return true
 
-  // 2. Alias exact match
   const aliases: string[] = athlete.aliases || []
   for (const alias of aliases) {
     if (g === normalize(alias)) return true
   }
 
-  // 3. Fuzzy match on full name (85% threshold)
   if (similarity(g, fullName) >= 0.85) return true
-
-  // 4. Fuzzy match on last name (88% threshold — slightly stricter for short names)
   if (lastName.length >= 4 && similarity(g, lastName) >= 0.88) return true
-
-  // 5. Guess contains last name or last name contains guess (for compound names)
   if (g.includes(lastName) || lastName.includes(g)) return true
 
   return false
