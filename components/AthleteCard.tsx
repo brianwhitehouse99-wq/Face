@@ -12,14 +12,10 @@ type Props = {
   isLast: boolean
 }
 
-function calcScore(guessNumber: number, seconds: number): number {
-  const maxScores = [100, 60, 30]
-  const minScores = [10, 6, 3]
-  const max = maxScores[guessNumber - 1] || 0
-  const min = minScores[guessNumber - 1] || 0
-  if (seconds <= 10) { return max }
-  const penalty = (seconds - 10) * 10
-  return Math.max(min, max - penalty)
+function calcScore(seconds: number): number {
+  if (seconds <= 6) return 100
+  if (seconds >= 60) return 10
+  return Math.round(100 - ((seconds - 6) * (90 / 54)))
 }
 
 export default function AthleteCard({ athlete, athleteIndex, totalAthletes, onResult, onNext, isLast }: Props) {
@@ -58,7 +54,7 @@ export default function AthleteCard({ athlete, athleteIndex, totalAthletes, onRe
     setGuessCount(newCount)
     if (data.correct) {
       if (timerRef.current) clearInterval(timerRef.current)
-      const earned = calcScore(newCount, secondsTaken)
+      const earned = calcScore(secondsTaken)
       setScore(earned)
       setDone(true)
       setWasCorrect(true)
