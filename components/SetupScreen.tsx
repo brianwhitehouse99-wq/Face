@@ -118,16 +118,14 @@ export default function SetupScreen({ onStart }: Props) {
         {/* Difficulty filter */}
         <div className="mb-6">
           <label className="text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-3 block">
-            Difficulty Level
+            Difficulty
           </label>
           <div className="flex flex-wrap gap-2">
             {[
               ['all', 'Random'],
-              ['5', '⭐ Superstars'],
-              ['4', '🏅 Fan Favorites'],
-              ['3', '👟 Roster Players'],
-              ['2', '🔍 Deep Cuts'],
-              ['1', '❓ Who?'],
+              ['easy', '🟢 Easy'],
+              ['medium', '🟡 Medium'],
+              ['hard', '🔴 Hard'],
             ].map(([val, label]) => (
               <Chip key={val} active={difficulty === val} onClick={() => setDifficulty(val)}>
                 {label}
@@ -135,12 +133,10 @@ export default function SetupScreen({ onStart }: Props) {
             ))}
           </div>
           <p className="text-zinc-600 text-xs mt-2">
-            {difficulty === 'all' && 'Random mix of players'}
-            {difficulty === '5' && 'Household names — Mahomes, LeBron, Trout'}
-            {difficulty === '4' && 'Starters most fans recognize'}
-            {difficulty === '3' && 'Regular contributors'}
-            {difficulty === '2' && 'Backups and role players'}
-            {difficulty === '1' && 'Truly obscure — the ultimate challenge'}
+            {difficulty === 'all' && 'Random mix of all players'}
+            {difficulty === 'easy' && 'Household names — Brady, LeBron, Trout'}
+            {difficulty === 'medium' && 'Players most fans would recognize'}
+            {difficulty === 'hard' && 'Truly obscure — the ultimate challenge'}
           </p>
         </div>
 

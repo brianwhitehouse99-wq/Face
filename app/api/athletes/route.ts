@@ -46,13 +46,14 @@ export async function GET(request: NextRequest) {
     }
 
     // Fame rating filter
-    if (difficulty !== 'all') {
-      const rating = parseInt(difficulty)
-      if (!isNaN(rating)) {
-        query = query.eq('fame_rating', rating)
-      }
+    if (difficulty === 'easy') {
+      query = query.gte('fame_rating', 4)
+    } else if (difficulty === 'medium') {
+      query = query.gte('fame_rating', 2).lte('fame_rating', 3)
+    } else if (difficulty === 'hard') {
+      query = query.eq('fame_rating', 1)
     } else if (sport === 'CFB' || sport === 'CBB' || sport === 'college') {
-      query = query.gte('fame_rating', 3)
+      query = query.gte('fame_rating', 2)
     }
 
     const { data, error } = await query
