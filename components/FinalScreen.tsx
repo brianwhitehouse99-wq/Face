@@ -34,6 +34,7 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
   const [submitted, setSubmitted] = useState(false)
 
   useEffect(() => {
+    if (!challengeId || !playerNamePrefill) return
     if (challengeId && playerNamePrefill) {
       submitToChallenge()
     }
@@ -50,7 +51,7 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
     await fetch('/api/challenges', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ challengeId, playerName, score: totalScore, correct }),
+      body: JSON.stringify({ challengeId, playerName: playerName || playerNamePrefill, score: totalScore, correct }),
     })
     setLeaderboardLink(`${window.location.origin}/leaderboard?id=${challengeId}`)
     setSubmitted(true)
@@ -125,7 +126,7 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
           </div>
         )}
 
-        {challengeId && !submitted && (
+        {challengeId {challengeId && !submitted && ({challengeId && !submitted && ( !submitted {challengeId && !submitted && ({challengeId && !submitted && ( !playerNamePrefill {challengeId && !submitted && ({challengeId && !submitted && ( (
           <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-left mb-4">
             <p className="text-white font-semibold mb-1">Add your score to the leaderboard!</p>
             {playerName ? (
