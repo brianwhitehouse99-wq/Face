@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 type Athlete = {
   id: number
@@ -32,6 +32,7 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
   const [leaderboardLink, setLeaderboardLink] = useState('')
   const [creating, setCreating] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const submitRef = useRef(false)
 
   const pct = correct / total
   const maxScore = total * 100
@@ -46,6 +47,8 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
   }, [])
 
   async function autoSubmit() {
+    if (submitRef.current) return
+    submitRef.current = true
     setCreating(true)
     await fetch('/api/challenges', {
       method: 'POST',
