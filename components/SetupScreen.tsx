@@ -150,7 +150,7 @@ export default function SetupScreen({ onStart }: Props) {
             Athletes per session
           </label>
           <div className="flex gap-2">
-            {[1, 3, 5].map(n => (
+            {[3, 5].map(n => (
               <Chip key={n} active={count === n} onClick={() => setCount(n)}>{n}</Chip>
             ))}
           </div>
