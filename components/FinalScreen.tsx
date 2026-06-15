@@ -27,23 +27,35 @@ type Props = {
 
 export default function FinalScreen({ correct, total, totalScore, athleteIds, sportFilter, athletes, results, onReplay, challengeId, playerNamePrefill, challengerName, challengerScore }: Props) {
   const [showChallenge, setShowChallenge] = useState(false)
-  const [playerName, setPlayerName] = useState(playerNamePrefill || '')
+  const [playerName, setPlayerName] = useState('')
   const [challengeLink, setChallengeLink] = useState('')
   const [leaderboardLink, setLeaderboardLink] = useState('')
   const [creating, setCreating] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
-  useEffect(() => {
-    if (!challengeId || !playerNamePrefill) return
-    if (challengeId && playerNamePrefill) {
-      submitToChallenge()
-    }
-  }, [])
-
   const pct = correct / total
   const maxScore = total * 100
   const messages = ['Tough one — keep practicing!', 'Not bad, keep at it!', 'Nice game!', 'Perfect score! You really know your athletes.']
   const msgIndex = pct === 0 ? 0 : pct < 0.5 ? 1 : pct < 1 ? 2 : 3
+
+  // Auto-submit if name is prefilled (challenge participant)
+  useEffect(() => {
+    if (challengeId && playerNamePrefill && !submitted) {
+      autoSubmit()
+    }
+  }, [])
+
+  async function autoSubmit() {
+    setCreating(true)
+    await fetch('/api/challenges', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ challengeId, playerName: playerNamePrefill, score: totalScore, correct }),
+    })
+    setLeaderboardLink(`${window.location.origin}/leaderboard?id=${challengeId}`)
+    setSubmitted(true)
+    setCreating(false)
+  }
 
   async function submitToChallenge() {
     if (!playerName.trim() || !challengeId) return
@@ -51,7 +63,7 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
     await fetch('/api/challenges', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ challengeId, playerName: playerName || playerNamePrefill, score: totalScore, correct }),
+      body: JSON.stringify({ challengeId, playerName, score: totalScore, correct }),
     })
     setLeaderboardLink(`${window.location.origin}/leaderboard?id=${challengeId}`)
     setSubmitted(true)
@@ -126,29 +138,36 @@ export default function FinalScreen({ correct, total, totalScore, athleteIds, sp
           </div>
         )}
 
-        {challengeId {challengeId && !submitted && ({challengeId && !submitted && ( !submitted {challengeId && !submitted && ({challengeId && !submitted && ( !playerNamePrefill {challengeId && !submitted && ({challengeId && !submitted && ( (
+        {/* Challenge participant — auto-submitted, show leaderboard link */}
+        {challengeId && playerNamePrefill && (
           <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-left mb-4">
-            <p className="text-white font-semibold mb-1">Add your score to the leaderboard!</p>
-            {playerName ? (
-              <div>
-                <p className="text-zinc-500 text-sm mb-4">Saving as <span className="text-white font-semibold">{playerName}</span></p>
-                <button onClick={submitToChallenge} disabled={creating} className="w-full py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-all disabled:opacity-40">
-                  {creating ? 'Saving...' : 'Save my score'}
-                </button>
-              </div>
+            {submitted ? (
+              <>
+                <p className="text-emerald-400 font-semibold mb-1">✓ Score saved!</p>
+                <p className="text-zinc-500 text-sm mb-3">Check the leaderboard to see how you rank</p>
+                <a href={leaderboardLink} className="block w-full py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-all text-center">
+                  View leaderboard →
+                </a>
+              </>
             ) : (
-              <div>
-                <p className="text-zinc-500 text-sm mb-4">Enter your name to save your score</p>
-                <input type="text" value={playerName} onChange={e => setPlayerName(e.target.value)} onKeyDown={e => e.key === 'Enter' && submitToChallenge()} placeholder="Your name..." className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-yellow-400 transition-colors mb-3" autoFocus />
-                <button onClick={submitToChallenge} disabled={!playerName.trim() || creating} className="w-full py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-all disabled:opacity-40">
-                  {creating ? 'Saving...' : 'Save my score'}
-                </button>
-              </div>
+              <p className="text-zinc-400 text-sm">Saving your score...</p>
             )}
           </div>
         )}
 
-        {challengeId && submitted && leaderboardLink && (
+        {/* Manual submit — only show if no prefilled name */}
+        {challengeId && !playerNamePrefill && !submitted && (
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-left mb-4">
+            <p className="text-white font-semibold mb-1">Add your score to the leaderboard!</p>
+            <p className="text-zinc-500 text-sm mb-4">Enter your name to save your score</p>
+            <input type="text" value={playerName} onChange={e => setPlayerName(e.target.value)} onKeyDown={e => e.key === 'Enter' && submitToChallenge()} placeholder="Your name..." className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-yellow-400 transition-colors mb-3" autoFocus />
+            <button onClick={submitToChallenge} disabled={!playerName.trim() || creating} className="w-full py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-xl transition-all disabled:opacity-40">
+              {creating ? 'Saving...' : 'Save my score'}
+            </button>
+          </div>
+        )}
+
+        {challengeId && !playerNamePrefill && submitted && leaderboardLink && (
           <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 text-left mb-4">
             <p className="text-emerald-400 font-semibold mb-1">✓ Score saved!</p>
             <p className="text-zinc-500 text-sm mb-3">Check the leaderboard to see how you rank</p>
