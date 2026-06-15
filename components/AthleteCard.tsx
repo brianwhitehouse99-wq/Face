@@ -154,7 +154,7 @@ export default function AthleteCard({ athlete, athleteIndex, totalAthletes, onRe
         <div className={`rounded-xl px-5 py-4 mb-4 flex items-center justify-between ${wasCorrect ? 'bg-emerald-950 border border-emerald-800' : 'bg-red-950 border border-red-900'}`}>
           <div>
             <p className={`font-bold text-base ${wasCorrect ? 'text-emerald-300' : 'text-red-300'}`}>
-              {wasCorrect ? '✓ Correct!' : '✗ ' + athlete.name}
+              {wasCorrect ? '✓ ' + athlete.name : '✗ ' + athlete.name}
             </p>
             <p className={`text-sm mt-0.5 ${wasCorrect ? 'text-emerald-500' : 'text-red-500'}`}>
               {athlete.position} · {athlete.team}
