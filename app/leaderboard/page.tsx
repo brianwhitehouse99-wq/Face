@@ -79,12 +79,17 @@ function LeaderboardContent() {
     <div style={{minHeight:'100vh',background:'#09090b',color:'#fff',padding:'2rem 1rem',fontFamily:'system-ui,sans-serif'}}>
       <div style={{maxWidth:500,margin:'0 auto'}}>
         <div style={{textAlign:'center',marginBottom:'2rem'}}>
-          <h1 style={{fontSize:48,fontWeight:900,letterSpacing:'-2px',marginBottom:4}}>
-            Face<span style={{color:'#facc15'}}>.</span>
-          </h1>
+          <a href="/" style={{display:'block',marginBottom:12}}>
+            <h1 style={{fontSize:48,fontWeight:900,letterSpacing:'-2px',marginBottom:4}}>
+              Face<span style={{color:'#facc15'}}>.</span>
+            </h1>
+          </a>
           <p style={{color:'#71717a',fontSize:14}}>
             {challenge.sport_filter === 'all' ? 'All sports' : challenge.sport_filter} challenge
           </p>
+          <a href="/" style={{display:'inline-block',marginTop:8,fontSize:12,color:'#71717a',textDecoration:'none'}}>
+            ← Back to home
+          </a>
         </div>
 
         <div style={{background:'#18181b',border:'1px solid #27272a',borderRadius:16,padding:'1rem 1.5rem',marginBottom:'1.5rem',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
