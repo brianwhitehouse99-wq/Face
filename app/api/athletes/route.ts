@@ -49,8 +49,10 @@ export async function GET(request: NextRequest) {
     if (difficulty === 'easy') {
       query = query.gte('fame_rating', 4)
     } else if (difficulty === 'medium') {
-      query = query.gte('fame_rating', 2).lte('fame_rating', 3)
-    } else if (difficulty === 'hard') {
+      query = query.eq('fame_rating', 3)
+    } else if (difficulty === 'tough') {
+      query = query.eq('fame_rating', 2)
+    } else if (difficulty === 'expert') {
       query = query.eq('fame_rating', 1)
     } else if (sport === 'CFB' || sport === 'CBB' || sport === 'college') {
       query = query.gte('fame_rating', 2)

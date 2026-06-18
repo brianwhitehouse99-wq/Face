@@ -125,7 +125,8 @@ export default function SetupScreen({ onStart }: Props) {
               ['all', 'Random'],
               ['easy', '🟢 Easy'],
               ['medium', '🟡 Medium'],
-              ['hard', '🔴 Hard'],
+              ['tough', '🟠 Tough'],
+              ['expert', '🔴 Expert'],
             ].map(([val, label]) => (
               <Chip key={val} active={difficulty === val} onClick={() => setDifficulty(val)}>
                 {label}
