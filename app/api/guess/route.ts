@@ -37,7 +37,7 @@ function normalize(s: string): string {
 
 function checkGuess(guess: string, athlete: any): boolean {
   const g = normalize(guess)
-  if (!g) return false
+  if (!g || g.length < 3) return false  // minimum 3 characters
 
   const fullName = normalize(athlete.name)
   const parts = fullName.split(' ')
@@ -53,7 +53,8 @@ function checkGuess(guess: string, athlete: any): boolean {
 
   if (similarity(g, fullName) >= 0.85) return true
   if (lastName.length >= 4 && similarity(g, lastName) >= 0.88) return true
-  if (g.includes(lastName) || lastName.includes(g)) return true
+  // Only match substring if guess is at least 4 chars AND covers most of the last name
+  if (g.length >= 4 && lastName.length >= 4 && (g === lastName || lastName === g)) return true
 
   return false
 }
