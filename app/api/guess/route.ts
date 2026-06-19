@@ -51,8 +51,8 @@ function checkGuess(guess: string, athlete: any): boolean {
     if (g === normalize(alias)) return true
   }
 
-  if (similarity(g, fullName) >= 0.85) return true
-  if (lastName.length >= 4 && similarity(g, lastName) >= 0.88) return true
+  if (similarity(g, fullName) >= 0.82) return true
+  if (lastName.length >= 4 && similarity(g, lastName) >= 0.82) return true
   // Only match substring if guess is at least 4 chars AND covers most of the last name
   if (g.length >= 4 && lastName.length >= 4 && (g === lastName || lastName === g)) return true
 
