@@ -30,6 +30,7 @@ function normalize(s: string): string {
     .trim()
     .normalize('NFD')                    // decompose accented chars
     .replace(/[\u0300-\u036f]/g, '')    // remove accent marks
+    .replace(/\s+(jr\.?|sr\.?|ii|iii|iv|v)$/i, '')  // remove suffixes
     .replace(/[^a-z ]/g, '')            // remove non-alpha
     .replace(/\s+/g, ' ')              // collapse spaces
     .trim()
